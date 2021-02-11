@@ -109,6 +109,7 @@ def assign2D(C, maximize=False):
     # This work was supported by the Office of Naval Research through the
     # Naval Research Laboratory 6.1 Base Program
 
+    C = C.copy()
     numRow = C.shape[0]
     numCol = C.shape[1]
     totalNumElsInC = C.size
@@ -184,6 +185,7 @@ def assign2D(C, maximize=False):
 
 
 def assign2DBasic(C):
+    #print(C)
     numRow = C.shape[0]
     numCol = C.shape[1]
 
@@ -296,6 +298,7 @@ def assign2DBasic(C):
     # Determine the gain to return
     gain = 0
     for curCol in range(0, numCol):
+        #print(f"row4col[{curCol}] = {row4col[curCol]}. C[{row4col[curCol]}][{curCol}] = {C[row4col[curCol], curCol]}")
         gain = gain + C[row4col[curCol], curCol]
 
     return gain, col4row, row4col
